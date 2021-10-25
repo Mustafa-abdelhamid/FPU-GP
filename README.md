@@ -1,2 +1,2 @@
 # FPU-GP
-This repository will contain all related GP related content  to help being organized 
+This repository will contain all  GP related content  to help being organized 
