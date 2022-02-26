@@ -86,7 +86,7 @@ if(d==0)
 	end
 else	
 	begin
-		out_y_shR = shR_y>>(d-1);		//R_SHIFT block
+		out_y_shR = shR_y>>(d);		//R_SHIFT block
 		sticky = |out_y_shR[20:0];
 		out_y_with_T={out_y_shR[46:21],sticky};
 	end
