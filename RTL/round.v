@@ -11,7 +11,7 @@ input	wire 	[Significant_WD+3:0] Min   ,  //operands significand in + 3 guard bi
 		
 input		Sign_in ,
 output	reg		[Significant_WD-1:0] MOut  ,
-		reg							overFlow,inexact_flag 
+output	reg				overFlow,inexact_flag 
 ) ;
 parameter	toNearest	= 2'b 00 ,
 			toZero 		= 2'b 01 ,
