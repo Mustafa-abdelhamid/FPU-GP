@@ -35,24 +35,24 @@ begin
 	righPass_shift_out=adder_out ;
 	righPath_exponentUpdate_control = donnot_shift ; 
 	end
-	3'b 100: // shift right  
+	3'b 100: // shift right  //edit so that the added bit is 1 
 	begin
-	righPass_shift_out=adder_out >>1  ;
+	righPass_shift_out={1'b1,adder_out[26:1]}  ;
 	righPath_exponentUpdate_control = donnot_shift ; 
 	end
 	3'b 101: // shift right
 	begin
-	righPass_shift_out=adder_out >> 1  ;
+	righPass_shift_out={1'b1,adder_out[26:1]}  ;
 	righPath_exponentUpdate_control = donnot_shift ; 
 	end
 	3'b 110: // shift right
 	begin
-	righPass_shift_out=adder_out  >> 1 ; 
+	righPass_shift_out={1'b1,adder_out[26:1]}  ; 
 	righPath_exponentUpdate_control = donnot_shift ; 
 	end
 	3'b 111: // shift right
 	begin
-	righPass_shift_out=adder_out >>1  ;
+	righPass_shift_out={1'b1,adder_out[26:1]}   ;
 	righPath_exponentUpdate_control = donnot_shift ; 
 	end
 	
