@@ -201,14 +201,14 @@ LZA_final_modified LZA_final_modified_inst (
 
  ); // check for correctness 
  
-/* 
+
 shift_left_adder shift_left_adder_inst (
 .SHL(SHL) ,
 .second_shift_left(second_shift_left) , 
 .final_shift_left(final_shift_left)
 
  ); //modify in case of error 
-*/
+
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
 //////////////////////// L1/R1 shifter BLOCK  ///////////////////////////
@@ -263,7 +263,7 @@ mantessa_mux mantessa_mux_inst (
 final_output final_output_inst (
 .M_out (Mz_to_exceptions) ,
 .E_out(Ez_updated) ,
-.required_modify (mantissaReqiredModify)  ,
+.required_modify (final_shift_left)  ,
 
 .overflow_flag(overflow_flag) , 
 .underflow_flag(underflow_flag) , 
