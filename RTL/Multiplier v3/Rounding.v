@@ -6,11 +6,11 @@ module Rounding(
 	input		wire	[24:0]	After_norm,     //hidden+fraction+G
 	
 	output		reg				Overflow_after_round,
-	output		reg		[23:0]	Mz
+	output		reg		[23:0]	Mz, 
+	output      reg      		inexact_flag
 );
 
 wire 			L,G;
-reg				rnd;
 reg 	[23:0]	internal_Mz;
 
 assign G = After_norm[0];
@@ -20,7 +20,6 @@ parameter	to_Near	= 2'b 00 ,
 			to_Zero = 2'b 01 ,
 			to_Pinf	= 2'b 10 ,
 			to_Ninf	= 2'b 11 ; 
-
 
  
 always @ (*)
@@ -32,39 +31,39 @@ always @ (*)
 						begin
 							if(L|T)
 								begin
-									rnd=1'b1;
+									inexact_flag=1'b1;
 								end
 							else
 								begin
-									rnd=1'b0;
+									inexact_flag=1'b0;
 								end		
 						end
 	
 					else	
 						begin
-							rnd=1'b0;
+							inexact_flag=1'b0;
 						end	
 				end
 			to_Zero:
 				begin
-					rnd=1'b0;			
+					inexact_flag=1'b0;			
 				end
 			to_Pinf:
 				begin
 					if (Sz)
 						begin
-							rnd=1'b0;
+							inexact_flag=1'b0;
 						end
 	
 					else	
 						begin
 							if(G|T)
 								begin
-									rnd=1'b1;
+									inexact_flag=1'b1;
 								end
 							else
 								begin
-									rnd=1'b0;
+									inexact_flag=1'b0;
 								end
 						end				
 		
@@ -75,17 +74,17 @@ always @ (*)
 						begin
 							if(G|T)
 								begin
-									rnd=1'b1;
+									inexact_flag=1'b1;
 								end
 							else
 								begin
-									rnd=1'b0;
+									inexact_flag=1'b0;
 								end		
 						end
 	
 					else	
 						begin
-							rnd=1'b0;
+							inexact_flag=1'b0;
 						end				
 		
 				end				
@@ -95,8 +94,9 @@ always @ (*)
 
 always @ (*)
 	begin
-	
-		{Overflow_after_round,internal_Mz}=After_norm[24:1] + rnd ;
+		
+		
+		{Overflow_after_round,internal_Mz}=After_norm[24:1] + inexact_flag ;
 		
 		if (Overflow_after_round)
 			begin 

@@ -16,12 +16,11 @@ assign Sz = Sx^Sy;
 // exponent addition outputs
 wire     [7:0]        Ez_add ;
 wire                 zero_Ex,zero_Ey;
-wire                zero_caseflag;
-
 
 /// significand outputs
 wire				  ovf;
 wire	 [4:0]		  SHL;
+wire     [23:0]       Mz_internal;
 wire				  Overflow_after_round;
 
 
@@ -29,7 +28,16 @@ wire				  Overflow_after_round;
 
 wire	[4:0] mantissaReqiredModify;
 wire          overflow_case ;
+wire    [7:0] Ez_internal;
 
+///output of exceptions 
+wire  invalid_flag1,overflow_flag1,zero_flag1;
+
+
+
+assign invalid_flag		= invalid_flag1 ;
+assign overflow_flag 	= overflow_flag1 ;
+assign zero_flag		= zero_flag1 ;
 
 
 
@@ -40,8 +48,7 @@ Exponent_addition Exp_add1
 .Ey(Ey),
 .zero_Ex(zero_Ex),
 .zero_Ey(zero_Ey),
-.Ez_add (Ez_add),
-.zero_caseflag(zero_caseflag)
+.Ez_add (Ez_add)
 );
 
 significand Sig11
@@ -52,10 +59,11 @@ significand Sig11
 .zero_Ey(zero_Ey),
 .R_mode(R_mode),
 .Sz(Sz),
-.Mz(Mz), /// not yet 
+.Mz(Mz_internal),  
 .ovf(ovf),
 .SHL(SHL),
-.Overflow_after_round(Overflow_after_round)
+.Overflow_after_round(Overflow_after_round),
+.inexact_flag(inexact_flag)
 );
 
 
@@ -69,15 +77,40 @@ Exponent_Update Exp_update11
 .ovf_rnd(Overflow_after_round),
 .reqiredShift_left(SHL),
 .mantissaReqiredModify(mantissaReqiredModify),
-.Ez(Ez),
+.Ez(Ez_internal),
 .underflow_flag(underflow_flag),
 .overflow_case(overflow_case)
 );
 
 
+exceptions Excep11 
+(
+.Ex(Ex),
+.Ey(Ey),
+.Ez(Ez_internal),
+.Mx(Mx),
+.My(My),
+.Mz(Mz_internal),
+.required_shift(SHL),
+.invalid_flag(invalid_flag1),
+.overflow_flag(overflow_flag1),
+.zero_flag(zero_flag1),
+.overflow_case(overflow_case)
+);
 
 
-
+final_output Multiplier_output 
+(
+.M_out(Mz_internal[22:0]),
+.E_out(Ez_internal),
+.required_shift(SHL),
+.invalid_flag(invalid_flag1),
+.overflow_flag(overflow_flag1),
+.underflow_flag(underflow_flag1),
+.zero_flag(zero_flag1),
+.final_M_out(Mz),
+.final_E_out(Ez)
+);
 
 
 endmodule

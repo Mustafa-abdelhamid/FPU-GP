@@ -7,7 +7,7 @@ input     wire  			  Sz,
 output    wire   [23:0]       Mz,
 output	  wire				  ovf,
 output	  wire	 [4:0]		  SHL,
-output	  wire				  Overflow_after_round
+output	  wire				  Overflow_after_round,inexact_flag
 );
 
 
@@ -47,7 +47,8 @@ Rounding R0
 .R_mode(R_mode),
 .After_norm(N),
 .Overflow_after_round(Overflow_after_round),
-.Mz(Mz)
+.Mz(Mz),
+.inexact_flag(inexact_flag)
 );
 
 normalization N1

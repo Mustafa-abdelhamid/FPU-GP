@@ -18,10 +18,12 @@ initial
 		$dumpfile("Significand.vcd") ;
 		$dumpvars ;
 		
-		Mx = 23'b00001100010000000000000;
+		Mx = 23'b00001100010000000000000; 
 		My = 23'b00001100011001000100000;
-		Ex = 8'b10000110;
-		Ey = 8'b10000110;
+		Ex = 8'b00000000;  
+		Ey = 8'b11000000;  //// not passed 
+				
+				/// and any inputs thier outputs is zeros	
 		Sx = 1'b0;
 		Sy = 1'b0;
 		R_mode = 2'b00 ;
@@ -30,7 +32,7 @@ initial
 		Mx = 23'b01111100010001000010000;
 		My = 23'b11111111111111111111111;
 		Ex = 8'b10000110 ;
-		Ex = 8'b10000110 ;
+		Ey = 8'b10001110 ;
 		Sx = 1'b0;
 		Sy = 1'b0;		
 		R_mode = 2'b00 ;

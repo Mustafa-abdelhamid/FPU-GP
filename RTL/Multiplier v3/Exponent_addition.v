@@ -17,7 +17,7 @@ always @ (*)
 	begin
 		Ez_add = Ex + Ey + 8'b10000001 ;
 		
-	/*	if (Ez < -8'd23)
+	/*	if (Ez < -8'd23)    to be handeld in exception block 
 			begin 
 				Ez_add = 8'b0;
 				zero_caseflag= 1'b1;
