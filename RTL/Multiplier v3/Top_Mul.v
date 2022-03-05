@@ -90,11 +90,12 @@ exceptions Excep11
 .Ez(Ez_internal),
 .Mx(Mx),
 .My(My),
-.Mz(Mz_internal),
+.Mz(Mz_internal[22:0]),
 .required_shift(SHL),
 .invalid_flag(invalid_flag1),
 .overflow_flag(overflow_flag1),
 .zero_flag(zero_flag1),
+.mantissaReqiredModify(mantissaReqiredModify),
 .overflow_case(overflow_case)
 );
 
