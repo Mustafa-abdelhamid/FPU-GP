@@ -36,8 +36,6 @@ integer			  failed_underflow = 0;
 integer			  failed_invalid = 0;
 integer			  failed_ovf = 0;
 
-integer			  Under_Ovf_conflict= 0 ;
-
 
 //integer			  denorm_cases = 0;
 
@@ -152,9 +150,8 @@ task check_out ;
 	 if  (Ez==0 && Mz==0)
 			if (zero_flagex != 1'b1) failed_zero = failed_zero + 1 ;
 			
-	 if  (Ez==0 && Mz!=0) begin 
+	 if  (Ez==0 && Mz!=0)
 			if (underflow_flagex != 1'b1) failed_underflow = failed_underflow + 1 ;
-			else if (zero_flagex==1'b1)  $display("conflict %d ", Oper_Num); end
 
 	 if  (Ez==8'b1111_1111 && Mz==0)
 			if (failed_ovf != 1'b1) begin  failed_ovf = failed_ovf + 1 ;   $display("ovvvver %d is failed", Oper_Num); end

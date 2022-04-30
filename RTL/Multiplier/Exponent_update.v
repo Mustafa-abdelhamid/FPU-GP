@@ -69,14 +69,12 @@ always@(*)
 			SHL_f1			<= 0 ;
 			SHL_f2			<= 0 ;
 			SHL_f3			<= 0 ;
-			
+
 			Ez_add_f1			<= 0  ;
 			Ez_add_f2			<= 0  ;
 			Ez_add_f3			<= 0  ;
 			Ez_add_f4			<= 0  ;
 			Ez_add_f5			<= 0  ;
-
-
 		end
 		
 	else
