@@ -1,8 +1,8 @@
 module exceptions (
 		input 	wire				CLK,RST,
-		input 	wire 	[7:0]		Ex_ext,Ey_ext,
+		input 	wire 	[7:0]		Ex_ext,Ey_ext,Ez,
 		input 	wire 	[22:0] 		Mx_ext,My_ext,
-		input 	wire 	[23:0] 		Mz, Ez,
+		input 	wire 	[23:0] 		Mz,
 		input	wire          		overflow_case ,
 		output 	reg  				invalid_flag,overflow_flag,initial_zero_flag
 					);
@@ -16,8 +16,9 @@ reg		[7:0]	Ex1,Ex2,Ex3,Ex4,Ex5,Ex6,Ex7,
 				Ez_f;
 				
 reg 	[22:0] 	Mx1,Mx2,Mx3,Mx4,Mx5,Mx6,Mx7,
-				My1,My2,My3,My4,My5,My6,My7,
-				Mz_f,Mz_ff;
+				My1,My2,My3,My4,My5,My6,My7;
+				
+reg 	[23:0] 	Mz_f,Mz_ff;
 				
 reg				overflow_case_f ;
 

@@ -14,8 +14,8 @@ output	wire 			invalid_flagex, overflow_flagex,
 );
 
 //internal signals
-wire zero_Ex;
-wire zero_Ey;
+wire [23:0]		Mx_conc,My_conc;
+
 wire invalid_flag;
 wire overflow_flag;
 wire inexact_flag;
@@ -44,18 +44,18 @@ Exponent_addition	Exponent_addition_inst (
 .RST(RST),
 .Ex_ext(Ex),
 .Ey_ext(Ey),
-.zero_Ex(zero_Ex),
-.zero_Ey(zero_Ey),
+.Mx_ext(Mx),
+.My_ext(My),
+.Mx_conc(Mx_conc),
+.My_conc(My_conc),
 .Ez_add(Ez_add)
 );
 
 multiplier  	    multiplier_inst (
 .CLK(CLK),
 .RST(RST),
-.zero_Ex(zero_Ex),
-.zero_Ey(zero_Ey), 
-.Mx_ext(Mx),
-.My_ext(My),
+.Mx_conc(Mx_conc),
+.My_conc(My_conc), 
 .P(P)
 );
 

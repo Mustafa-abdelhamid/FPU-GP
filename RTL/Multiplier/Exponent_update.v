@@ -46,7 +46,14 @@ always@(*)
 		//			mantissaReqiredModify = ~internal + 1'b1 ;
 				end
 		end
-	else 
+	else if(~(|internal))
+		begin
+					underflow_case=1'b1 ;
+					overflow_case= 1'b0 ; 
+					Ez= 8'b 00000000 ;
+		end
+	
+	else
 		begin
 		underflow_case=1'b0 ;
 		overflow_case= 1'b0 ; 
