@@ -1,0 +1,13 @@
+# OpenFile ./Exponent_Difference_new.v
+vsim work.Exponent_Difference_new
+# vsim work.Exponent_Difference_new 
+# Start time: 16:00:13 on May 12,2022
+# Loading work.Exponent_Difference_new
+# Loading work.bit_8_reg
+# Loading work.bit_1_reg
+# Loading work.Exponent_Difference_1
+# Loading work.Exponent_Difference_2
+# Loading work.Exponent_Difference_3
+# Loading work.Exponent_Difference_4
+# End time: 16:00:28 on May 12,2022, Elapsed time: 0:00:15
+# Errors: 0, Warnings: 0

@@ -1,0 +1,51 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dF:/4th year/Graduation Project/FPU/Design/Adder Optimization RTL_1/simulation files
+vomar_tb
+Z0 !s110 1652621083
+!i10b 1
+!s100 @03iD<J;[=Yof7_OmN3^>1
+Im3za2l<4<NP5`hEjI58T:2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dF:/4th year/Graduation Project/FPU/Design/Adder Optimization RTL_3/simulation files
+w1652621067
+8omar_tb.v
+Fomar_tb.v
+L0 2
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1652621083.000000
+Z5 !s107 Saleh_tb.v|omar_tb.v|
+Z6 !s90 omar_tb.v|Saleh_tb.v|
+!i113 1
+Z7 tCvgOpt 0
+vSaleh_tb
+R0
+!i10b 1
+!s100 XD6INSm:U_QjF8V0<nR8m0
+IR2[TjPi?I8X]<ah2KHIkU3
+R1
+R2
+w1652428004
+8Saleh_tb.v
+FSaleh_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
+n@saleh_tb
